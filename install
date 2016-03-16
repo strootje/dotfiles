@@ -1,6 +1,52 @@
 #!/usr/bin/env bash
 
-# USER HOME DIR
-HOMEDIR=~/
+BASEPATH=$(dirname $0)
+INSTALLPATH=~
+DOTFILE=.dotfiles
 
-echo $HOMEDIR
+# include
+source $BASEPATH/zsh/colors.zsh
+source $BASEPATH/zsh/functions.zsh
+
+function initialize {
+	printf "################################################################################\n"
+	printf "### Dotfiles                                                                 ###\n"
+	printf "################################################################################\n"
+	touch $INSTALLPATH/$DOTFILE
+}
+
+function finalize {
+	echo "done" > $INSTALLPATH/$DOTFILE
+}
+
+function symlink {
+	TEMPLATES=$BASEPATH/**/*.tmpl
+
+	for template in $TEMPLATES; do
+		progress $template
+		symlink=""
+		while read line || [[ -n $line ]]; do
+			if [[ $line =~ %(.+)% ]]; then
+				varname="${BASH_REMATCH[1]}"
+				question "Enter value for <${varname}>: "
+				read -s varvalue < /dev/tty
+				line="${line//%$varname%/$varvalue}"
+			fi
+			symlink="$symlink$line\n"
+		done < $template
+
+		filename=${template/\.tmpl/}
+		printf "$symlink" > $filename
+		success $template
+	done
+
+	SYMLINKS=$BASEPATH/**/*.symlink
+	for SYMLINK in $SMYLINKS; do
+		echo $SYMLINK
+	done
+}
+
+# run
+initialize
+symlink
+finalize
