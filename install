@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-BASEPATH=$(dirname $0)
+BASEDIR=$(dirname $0)
+BASEPATH=$(pwd $BASEDIR)
 INSTALLPATH=~
 DOTFILE=.dotfiles
 
@@ -21,7 +22,6 @@ function finalize {
 
 function symlink {
 	TEMPLATES=$BASEPATH/**/*.tmpl
-
 	for template in $TEMPLATES; do
 		progress $template
 		symlink=""
@@ -29,7 +29,7 @@ function symlink {
 			if [[ $line =~ %(.+)% ]]; then
 				varname="${BASH_REMATCH[1]}"
 				question "Enter value for <${varname}>: "
-				read -s varvalue < /dev/tty
+				read varvalue < /dev/tty
 				line="${line//%$varname%/$varvalue}"
 			fi
 			symlink="$symlink$line\n"
@@ -41,8 +41,15 @@ function symlink {
 	done
 
 	SYMLINKS=$BASEPATH/**/*.symlink
-	for SYMLINK in $SMYLINKS; do
-		echo $SYMLINK
+	for symlink in $SYMLINKS; do
+		progress $SYMLINK
+
+		basename=$(basename "$symlink")
+		filename=.${basename/\.symlink/}
+		echo $symlink ">" $INSTALLPATH/$filename
+		ln -f $symlink $INSTALLPATH/$filename
+
+		success $symlink
 	done
 }
 
