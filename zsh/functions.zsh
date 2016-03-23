@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 # include colors
-source ./colors.zsh
+source $DOTFILES/zsh/colors.zsh
+
+function info {
+	printf "\r### ${CYELLOW}[${CRESET} ${CBLUE}..${CRESET} ${CYELLOW}]${CRESET} ::: $1\n"
+}
 
 function progress {
 	printf "\r### ${CYELLOW}[${CRESET} ${CBLUE}..${CRESET} ${CYELLOW}]${CRESET} ::: $1"

@@ -46,7 +46,6 @@ function symlink {
 
 		basename=$(basename "$symlink")
 		filename=.${basename/\.symlink/}
-		echo $symlink ">" $INSTALLPATH/$filename
 		ln -f $symlink $INSTALLPATH/$filename
 
 		success $symlink
