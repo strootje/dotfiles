@@ -14,9 +14,8 @@ export PATH=$PATH:$DOTFILES/bin
 export EDITOR="vim"
 
 # Source zsh files
-for file in $DOTFILES/zsh/*.zsh; do
-	source $file
-done
+source $DOTFILES/zsh/insert-sudo.zsh
+source $DOTFILES/zsh/dtags.zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
