@@ -14,7 +14,9 @@ export PATH=$PATH:$DOTFILES/bin
 export EDITOR="vim"
 
 # Source zsh files
-source $DOTFILES/**/*.zsh
+for file in $DOTFILES/zsh/*.zsh; do
+	source $file
+done
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -27,4 +29,5 @@ ZSH_THEME="simple"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(archlinux docker emoji git )
 
+# Enable oh my zsh
 source $ZSH/oh-my-zsh.sh
