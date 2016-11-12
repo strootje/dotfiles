@@ -13,11 +13,6 @@ export PATH=$PATH:$DOTFILES/bin
 # Update default editor
 export EDITOR="vim"
 
-# Source zsh files
-source $DOTFILES/golang/golang.zsh
-source $DOTFILES/zsh/insert-sudo.zsh
-source $DOTFILES/zsh/dtags.zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -27,7 +22,12 @@ ZSH_THEME="simple"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux docker emoji git )
+plugins=(archlinux docker emoji git)
 
 # Enable oh my zsh
 source $ZSH/oh-my-zsh.sh
+
+# Source zsh files
+source $DOTFILES/golang/golang.zsh
+source $DOTFILES/zsh/insert-sudo.zsh
+source $DOTFILES/zsh/dtags.zsh
