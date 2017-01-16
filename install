@@ -16,7 +16,7 @@ INSTALLDIR=~
 DGRPS=( base-devel )
 
 # Default packages to auto install
-DPKGS=( git vim cmake clang sublime-text-dev )
+DPKGS=( git vim cmake clang dtags sublime-text-dev )
 
 ## Constructor
 #######################################
@@ -108,6 +108,11 @@ function SymlinkFiles {
 	for symlink in $SYMLINKS; do
 		SymlinkConfig $symlink
 	done
+
+	# temp for sublime
+	ssource=./sublime-text/Preferences.sublime-settings.symlink-sublime
+	ln -fs $(readlink -f $ssource) $INSTALLDIR/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+	success "Symlink $CYELLOW[$CRESET$CGRAY$ssource$CRESET$CYELLOW]$CRESET: symlink created"
 }
 
 function ParseConfigTemplate {
