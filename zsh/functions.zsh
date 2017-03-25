@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
-BASEDIR=$(pwd dirname $0)
-source $BASEDIR/zsh/colors.zsh
+BASEDIR=$(dirname `readlink -f $0`)
+source $BASEDIR/colors.zsh
 
 function joinstr {
 	local IFS="$1";
@@ -20,7 +19,7 @@ function info {
 function progress {
 	clean
 	printf "\r   ${CYELLOW}[${CRESET}${CGRAY} .. ${CRESET}${CYELLOW}]${CRESET} $1"
-	sleep .05
+	sleep .08
 }
 
 function question {

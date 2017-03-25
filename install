@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-BASEDIR=$(pwd dirname $0)
+shopt -s globstar
+BASEDIR=$(dirname `readlink -f $0`)
 source $BASEDIR/zsh/colors.zsh
 source $BASEDIR/zsh/functions.zsh
 
@@ -16,12 +17,12 @@ INSTALLDIR=~
 DGRPS=( base-devel )
 
 # Default packages to auto install
-DPKGS=( git vim cmake clang dtags sublime-text-dev )
+DPKGS=( git vim cmake clang gtest dtags sublime-text-dev )
 
 ## Constructor
 #######################################
 function Bootstrapper {
-	InstallPackages
+	# InstallPackages
 	SymlinkFiles
 }
 
@@ -106,13 +107,16 @@ function SymlinkFiles {
 
 	SYMLINKS=$BASEDIR/**/*.symlink
 	for symlink in $SYMLINKS; do
-		SymlinkConfig $symlink
+		SymlinkDotfile $INSTALLDIR $symlink
 	done
-
-	# temp for sublime
-	ssource=./sublime-text/Preferences.sublime-settings.symlink-sublime
-	ln -fs $(readlink -f $ssource) $INSTALLDIR/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-	success "Symlink $CYELLOW[$CRESET$CGRAY$ssource$CRESET$CYELLOW]$CRESET: symlink created"
+	
+	CONFIGPATH=$BASEDIR/config
+	SYMLINKS=$CONFIGPATH/**/*.symlink-config
+	for symlink in $SYMLINKS; do
+		basepath=$(dirname $symlink)
+		installpath=${basepath//$CONFIGPATH\//}
+		SymlinkConfig $INSTALLDIR/.config/$installpath $symlink
+	done
 }
 
 function ParseConfigTemplate {
@@ -139,13 +143,40 @@ function ParseConfigTemplate {
 	fi
 }
 
+function SymlinkDotfile {
+	targetdir=$1
+	symlink=$2
+
+	sympath=$(dirname $symlink)
+	symfile=$(basename $symlink)
+
+	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: converting to dotfile notation"
+	SymlinkFile $symlink $targetdir $sympath/.$symfile
+}
+
 function SymlinkConfig {
-	symlink=$1
-	filename=${symlink/\.symlink/}
-	symbase=$(basename $filename)
-	progress "Symlink $CYELLOW[$CRESET$CGRAY$symbase$CRESET$CYELLOW]$CRESET: looking..."
-	ln -fs $(readlink -f $symlink) $INSTALLDIR/.$symbase
-	success "Symlink $CYELLOW[$CRESET$CGRAY$symbase$CRESET$CYELLOW]$CRESET: symlink created"
+	targetdir=$1
+	symlink=$2
+
+	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: converting to config notation"
+	SymlinkFile $symlink $targetdir $symlink
+}
+
+function SymlinkFile {
+	sourcelink=$1
+	targetdir=$2
+	symlink=$3
+	symbase=$(basename $symlink)
+	filename="${symbase%.*}"
+
+	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: looking..."
+	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: creating directory"
+	mkdir -p $targetdir
+
+	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: creating symlink"
+	ln -fs $(readlink -f $sourcelink) $targetdir/$filename
+
+	success "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: symlink created"
 }
 
 
@@ -156,4 +187,4 @@ function SymlinkConfig {
 ### thanks to:                                                               ###
 ### https://gist.github.com/adamhotep/895cebf290e95e613c006afbffef09d7       ###
 ################################################################################
-Bootstrapper 
+Bootstrapper

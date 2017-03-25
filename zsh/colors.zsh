@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-BASEDIR=$(pwd dirname $0)
+BASEDIR=$(dirname `readlink -f $0`)
 
 CRESET="\e[0m"
 
