@@ -1,5 +1,4 @@
-BASEDIR=$(dirname `readlink -f $0`)
-source $BASEDIR/colors.zsh
+source $DOTFILES/zsh/colors.zsh
 
 function joinstr {
 	local IFS="$1";

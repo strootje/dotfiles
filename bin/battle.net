@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+source $DOTFILES/zsh/functions.zsh
+
+BOTTLE="$WINECELLAR/battlenet"
+DOWNLOAD="https://www.battle.net/download/getInstallerForGame?os=win&locale=enGB&version=LIVE&gameProgram=BATTLENET_APP"
+INSTALLER="~/Downloads/battlenetinstaller.exe"
+LAUNCHER="$BOTTLE/drive_c/Program Files/Blizzard App/Battle.net Launcher.exe"
+
+if [[ -f $LAUNCHER ]]; then
+	echo "LAUNCHING"
+	WINEPREFIX=$BOTTLE optirun wine "$LAUNCHER" &> /dev/null &
+else
+	echo "INSTALLING"
+	# wget $DOWNLOAD -O $INSTALLER
+	# WINEPREFIX=$BOTTLE wine $INSTALLER > /dev/null &
+fi
+
