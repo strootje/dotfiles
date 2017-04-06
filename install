@@ -36,8 +36,8 @@ CMDINSTPKG="pacman -S --noconfirm"
 
 PKGS=()
 function InstallPackages {
-	PREFIX="$CYELLOW[$CRESET$CGRAY"packages"$CRESET$CYELLOW]$CRESET"
-	progress "$PREFIX: Checking ..."
+	_PREFIX="$CYELLOW[$CRESET$CGRAY"packages"$CRESET$CYELLOW]$CRESET"
+	progress "$_PREFIX: checking ..."
 
 	for grp in ${DGRPS[*]}; do
 		CheckGroup $grp
@@ -49,13 +49,13 @@ function InstallPackages {
 
 	SPKGS="$(joinstr " " "${PKGS[@]}")"
 	if ! [ "$SPKGS" == "" ]; then
-		info "$PREFIX: Installing ...\n"
+		info "$_PREFIX: installing ...\n"
 		if ! sudo $CMDINSTPKG $SPKGS; then
-			error "$PREFIX: Error"
+			error "$_PREFIX: error"
 		fi
 	fi
 
-	success "$PREFIX: Installed ${#PKGS[@]} new packages"
+	success "$_PREFIX: installed ${#PKGS[@]} new packages"
 }
 
 function CheckGroup {
@@ -80,11 +80,12 @@ function _internalCheckPackage {
 function CheckPackage {
 	PKGNAME=$1
 	GROUP=$2
-	progress "$GROUP$CYELLOW[$CRESET$CGRAY$PKGNAME$CRESET$CYELLOW]$CRESET: looking ..."
+	PREFIX="$GROUP$CYELLOW[$CRESET$CGRAY$PKGNAME$CRESET$CYELLOW]$CRESET"
+	progress "$PREFIX: looking ..."
 	if [[ $(_internalCheckPackage "$PKGNAME") == 1 ]]; then
 	# if [[ $(_isInstalled "$PKGNAME") == 1 ]]; then
-		if confirm "$GROUP$CYELLOW[$CRESET$CGRAY$PKGNAME$CRESET$CYELLOW]$CRESET: continue installation?"; then
-			success "$GROUP$CYELLOW[$CRESET$CGRAY$PKGNAME$CRESET$CYELLOW]$CRESET: installation pending."
+		if confirm "$PREFIX: continue installation?"; then
+			success "$PREFIX: installation pending."
 			PKGS+=($PKGNAME)
 		fi
 	fi
@@ -94,8 +95,8 @@ function CheckPackage {
 ## Symlinking
 #######################################
 function SymlinkFiles {
-	PREFIX="$CYELLOW[$CRESET$CGRAY"symlinks"$CRESET$CYELLOW]$CRESET"
-	progress "$PREFIX: Checking ..."
+	_PREFIX="$CYELLOW[$CRESET$CGRAY"symlinks"$CRESET$CYELLOW]$CRESET"
+	progress "$_PREFIX: checking ..."
 
 	TEMPLATES=$BASEDIR/**/*.tmpl
 	for template in $TEMPLATES; do
@@ -107,15 +108,15 @@ function SymlinkFiles {
 		SymlinkDotfile $INSTALLDIR $symlink
 	done
 
-	# CONFIGPATH=$BASEDIR/config
-	# SYMLINKS=$CONFIGPATH/**/*.symlink-config
-	# for symlink in $SYMLINKS; do
-	# 	basepath=$(dirname $symlink)
-	# 	installpath=${basepath//$CONFIGPATH\//}
-	# 	SymlinkConfig $INSTALLDIR/.config/$installpath $symlink
-	# done
+	CONFIGPATH=$BASEDIR/config
+	SYMLINKS=$CONFIGPATH/**/*.symlink-config
+	for symlink in $SYMLINKS; do
+		basepath=$(dirname $symlink)
+		installpath=${basepath//$CONFIGPATH\//}
+		SymlinkConfig $INSTALLDIR/.config/$installpath $symlink
+	done
 
-	success "$PREFIX: Finished"
+	success "$_PREFIX: finished"
 }
 
 function ParseConfigTemplate {
@@ -138,7 +139,7 @@ function ParseConfigTemplate {
 		done < $TMPL
 
 		printf "$LINK" > $FILE
-		success "$PREFIX: Generated"
+		success "$PREFIX: generated"
 	fi
 }
 
@@ -149,7 +150,8 @@ function SymlinkDotfile {
 	sympath=$(dirname $symlink)
 	symfile=$(basename $symlink)
 
-	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: converting to dotfile notation"
+	PREFIX="$CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET"
+	progress "$PREFIX: converting to dotfile notation"
 	SymlinkFile $symlink $targetdir $sympath/.$symfile
 }
 
@@ -157,7 +159,8 @@ function SymlinkConfig {
 	targetdir=$1
 	symlink=$2
 
-	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: converting to config notation"
+	PREFIX="$CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET"
+	progress "$PREFIX: converting to config notation"
 	SymlinkFile $symlink $targetdir $symlink
 }
 
@@ -168,14 +171,18 @@ function SymlinkFile {
 	symbase=$(basename $symlink)
 	filename="${symbase%.*}"
 
-	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: looking..."
-	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: creating directory"
-	mkdir -p $targetdir
+	PREFIX="$CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET"
+	progress "$PREFIX: looking..."
 
-	progress "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: creating symlink"
-	ln -fs $(readlink -f $sourcelink) $targetdir/$filename
+	if ! [ -f $targetdir/$filename ]; then
+		progress "$PREFIX: creating directory"
+		mkdir -p $targetdir
 
-	success "Symlink $CYELLOW[$CRESET$CGRAY$filename$CRESET$CYELLOW]$CRESET: symlink created"
+		progress "$PREFIX: creating symlink"
+		ln -fs $(readlink -f $sourcelink) $targetdir/$filename
+
+		success "$PREFIX: created"
+	fi
 }
 
 

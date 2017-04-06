@@ -8,10 +8,10 @@ LAUNCHER="$BOTTLE/drive_c/Program Files/Blizzard App/Battle.net Launcher.exe"
 WINEOPTS="WINEPREFIX=$BOTTLE"
 
 if [[ -f $LAUNCHER ]]; then
-	echo "LAUNCHING"
+	info "LAUNCHING"
 	WINEPREFIX=$BOTTLE optirun wine "$LAUNCHER" &> /dev/null &
 else
-	echo "INSTALLING"
+	error "TODO INSTALLING"
 	# wget $DOWNLOAD -O $INSTALLER
 	# $PREFENV wine $INSTALLER > /dev/null &
 fi
