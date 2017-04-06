@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+DOWNLOAD="http://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar"
+GAMES=~/Games
+MCDIR=$GAMES/Minecraft
+optirun java -jar $MCDIR/Minecraft.jar &> /dev/null &

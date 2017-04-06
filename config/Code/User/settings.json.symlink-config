@@ -5,11 +5,5 @@
 	"git.autorefresh": false,
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
-	"workbench.iconTheme": "vs-minimal",
-	"[cpp]": {
-		"editor.quickSuggestions": false
-	},
-	"[c]": {
-		"editor.quickSuggestions": false
-	}
+	"workbench.iconTheme": "vs-minimal"
 }
