@@ -1,2 +1,3 @@
-/git/gitconfig.symlink
-/zsh/zshrc.symlink
+# Ignore dotfiles/everyhing by default
+.dotfiles
+*
