@@ -1,0 +1,1 @@
+/home/bastiaan/Workspace/dotfiles/zsh/zshrc.symlink
