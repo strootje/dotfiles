@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+source $DOTFILES/bin/dotinstall
+
+info "adding group developer"
+sudo groupadd developer
+
+info "adding group to current user"
+sudo usermod -aG developer $USER
+
+info "adding group as owner of the /usr/local folder"
+sudo chown -R root:developer /usr/local
+
+info "copying limits.conf"
+sudo cp --force --backup=numbered $DOTFILES/.system/security/limits.conf /etc/security/limits.conf
+
