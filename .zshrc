@@ -23,4 +23,4 @@ export NVM_DIR="$DOTFILES/nvm"
 # Source zsh files
 source $ZSH/oh-my-zsh.sh
 source $DOTFILES/config/dtags.zsh
-source $DOTFILES/keybinds/sudo-insert.zsh
+source $DOTFILES/keybinds/sudo-prefix.zsh
