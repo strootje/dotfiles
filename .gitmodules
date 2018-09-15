@@ -4,3 +4,6 @@
 [submodule ".dotfiles/nvm"]
 	path = .dotfiles/nvm
 	url = https://github.com/creationix/nvm.git
+[submodule ".dotfiles/bottles"]
+	path = .dotfiles/bottles
+	url = https://github.com/strootje/bottles.git
