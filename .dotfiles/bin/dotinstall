@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+DOTPATH=$HOME/.dotfiles
+DOT="git --git-dir $DOTPATH/.git --work-tree=$HOME"
+REPO="git@github.com:strootje/dotfiles.git"
+
+# Install the dotfiels
+if [ -d "$DOTPATH" ]; then
+	echo "[ DOT ] :: $DOTPATH exists"
+	exit;
+fi
+
+echo "[ DOT ] :: Installing $DOTPATH for $HOME"
+$DOT clone $REPO $DOTPATH
