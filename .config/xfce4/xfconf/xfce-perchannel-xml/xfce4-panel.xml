@@ -9,6 +9,8 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="8"/>
         <value type="int" value="1"/>
+        <value type="int" value="11"/>
+        <value type="int" value="12"/>
         <value type="int" value="10"/>
         <value type="int" value="4"/>
         <value type="int" value="3"/>
@@ -53,17 +55,25 @@
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
+        <value type="string" value="thunar"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="pnmixer"/>
         <value type="string" value="manjaro-settings-manager-daemon"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="msm notifier"/>
+        <value type="string" value="clementine"/>
+        <value type="string" value="steam"/>
         <value type="string" value="orage"/>
+        <value type="string" value="task manager"/>
+        <value type="string" value="syncthing-gtk"/>
         <value type="string" value="pamac-tray"/>
         <value type="string" value="blueman-applet"/>
         <value type="string" value="xfce terminal"/>
         <value type="string" value="clipman"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="xnoise"/>
+        <value type="string" value="javaembeddedframe"/>
+        <value type="string" value="syncthing"/>
       </property>
     </property>
     <property name="plugin-3" type="string" value="tasklist">
@@ -80,7 +90,11 @@
     </property>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="audacious"/>
+      <property name="mpris-players" type="string" value="audacious;clementine;vlc"/>
+      <property name="enable-wnck" type="bool" value="false"/>
+      <property name="enable-multimedia-keys" type="bool" value="true"/>
+      <property name="enable-mpris" type="bool" value="true"/>
+      <property name="blacklisted-players" type="string" value="audacious;vlc"/>
     </property>
     <property name="plugin-8" type="string" value="whiskermenu"/>
     <property name="plugin-5" type="string" value="clock"/>
@@ -99,6 +113,21 @@
     <property name="plugin-10" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="15370152754.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-11" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15372866431.desktop"/>
+      </property>
+    </property>
+    <property name="clipman" type="empty">
+      <property name="settings" type="empty">
+        <property name="show-qr-code" type="bool" value="true"/>
+      </property>
+    </property>
+    <property name="plugin-12" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15395018331.desktop"/>
       </property>
     </property>
   </property>

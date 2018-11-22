@@ -29,5 +29,7 @@
 		"**/*.scss.d.ts": true,
 		"**/schema.json": true,
 		"**/*.log": true
-	}
+	},
+	"java.home": "/usr/lib/jvm/java-8-openjdk",
+	"explorer.confirmDragAndDrop": false
 }
