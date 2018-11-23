@@ -11,7 +11,7 @@ export EDITOR="vim"
 # Zsh installation
 export ZSH=$DOTFILES/oh-my-zsh
 ZSH_THEME="simple"
-plugins=(archlinux docker emoji git)
+plugins=(archlinux docker emoji git rust)
 
 # Enable oh my zsh
 
