@@ -120,7 +120,6 @@
     </property>
     <property name="plugin-11" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="15372866431.desktop"/>
       </property>
     </property>
     <property name="clipman" type="empty">
@@ -130,7 +129,6 @@
     </property>
     <property name="plugin-12" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="15395018331.desktop"/>
       </property>
     </property>
   </property>

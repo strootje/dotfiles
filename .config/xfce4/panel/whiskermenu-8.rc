@@ -1,5 +1,5 @@
-favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-web-browser.desktop,exo-mail-reader.desktop,pamac-manager.desktop,steam.desktop
-recent=virt-manager.desktop,gparted.desktop,xfce4-taskmanager.desktop,galculator.desktop,xfce-display-settings.desktop,libreoffice-writer.desktop,android-studio.desktop,libreoffice-calc.desktop,sqlitebrowser.desktop,syncthing-gtk.desktop
+favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-web-browser.desktop,exo-mail-reader.desktop,pamac-manager.desktop
+recent=gparted.desktop,xfce4-taskmanager.desktop,xfce-display-settings.desktop
 button-title=Applications
 button-icon=/usr/share/icons/whiskermenu-manjaro.svg
 button-single-row=false
