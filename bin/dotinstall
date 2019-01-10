@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
-<<<<<<< HEAD
 # Defines
-=======
->>>>>>> origin
 DOTPATH=$HOME/.dotfiles
 DOT="git --git-dir $DOTPATH/.git --work-tree=$HOME"
 REPO="git@github.com:strootje/dotfiles.git"
 
-<<<<<<< HEAD
 info() {
 	printf "[ DOT ] :: $@\n"
 }
@@ -25,13 +21,3 @@ fi
 info "fetching submodules"
 $DOT submodule init
 $DOT submodule update
-=======
-# Install the dotfiels
-if [ -d "$DOTPATH" ]; then
-	echo "[ DOT ] :: $DOTPATH exists"
-	exit;
-fi
-
-echo "[ DOT ] :: Installing $DOTPATH for $HOME"
-$DOT clone $REPO $DOTPATH
->>>>>>> origin
