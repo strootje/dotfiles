@@ -1,0 +1,6 @@
+[submodule ".dotfiles/nvm"]
+	path = .dotfiles/nvm
+	url = https://github.com/creationix/nvm.git
+[submodule ".dotfiles/oh-my-fish"]
+	path = .dotfiles/oh-my-fish
+	url = git@github.com:oh-my-fish/oh-my-fish.git
