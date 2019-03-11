@@ -8,7 +8,7 @@
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.startupEditor": "newUntitledFile",
 	"git.enableSmartCommit": true,
-	"window.zoomLevel": 0,
+	"window.zoomLevel": -1,
 	"material-icon-theme.activeIconPack": "react_redux",
 	"material-icon-theme.folders.theme": "classic",
 	"importSorter.importStringConfiguration.tabType": "tab",
