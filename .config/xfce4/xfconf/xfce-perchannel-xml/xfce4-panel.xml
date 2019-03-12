@@ -8,10 +8,6 @@
       <property name="position-locked" type="bool" value="true"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="8"/>
-        <value type="int" value="1"/>
-        <value type="int" value="11"/>
-        <value type="int" value="4"/>
-        <value type="int" value="3"/>
         <value type="int" value="7"/>
         <value type="int" value="6"/>
         <value type="int" value="9"/>
@@ -21,7 +17,7 @@
       <property name="role" type="string" value="xfce4-panel-12965750720"/>
       <property name="length-adjust" type="bool" value="true"/>
       <property name="background-style" type="uint" value="0"/>
-      <property name="size" type="uint" value="42"/>
+      <property name="size" type="uint" value="24"/>
       <property name="mode" type="uint" value="0"/>
       <property name="autohide-behavior" type="uint" value="0"/>
       <property name="nrows" type="uint" value="1"/>
@@ -68,20 +64,14 @@
         <value type="string" value="pamac-tray"/>
         <value type="string" value="blueman-applet"/>
         <value type="string" value="xfce terminal"/>
-        <value type="string" value="clipman"/>
+        <value type="string" value="syncthing"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="xnoise"/>
         <value type="string" value="javaembeddedframe"/>
-        <value type="string" value="syncthing"/>
       </property>
-    </property>
-    <property name="plugin-3" type="string" value="tasklist">
-      <property name="grouping" type="uint" value="0"/>
-      <property name="sort-order" type="uint" value="4"/>
-      <property name="flat-buttons" type="bool" value="false"/>
-      <property name="show-labels" type="bool" value="false"/>
-      <property name="middle-click" type="uint" value="1"/>
-      <property name="window-scrolling" type="bool" value="false"/>
+      <property name="names-hidden" type="array">
+        <value type="string" value="clipman"/>
+      </property>
     </property>
     <property name="plugin-7" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
@@ -98,23 +88,6 @@
     <property name="plugin-8" type="string" value="whiskermenu"/>
     <property name="plugin-5" type="string" value="clock">
       <property name="digital-format" type="string" value="%R"/>
-    </property>
-    <property name="plugin-1" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="15452364111.desktop"/>
-      </property>
-      <property name="disable-tooltips" type="bool" value="false"/>
-      <property name="show-label" type="bool" value="false"/>
-    </property>
-    <property name="plugin-4" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="15452364372.desktop"/>
-      </property>
-    </property>
-    <property name="plugin-11" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="15452364563.desktop"/>
-      </property>
     </property>
     <property name="clipman" type="empty">
       <property name="settings" type="empty">
