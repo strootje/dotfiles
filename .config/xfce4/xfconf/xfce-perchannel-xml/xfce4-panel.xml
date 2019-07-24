@@ -53,8 +53,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
         <value type="string" value="gameguide"/>
-        <value type="string" value="xfce terminal"/>
-        <value type="string" value="slack"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="syncthing"/>
         <value type="string" value="discord"/>
         <value type="string" value="firewall-applet"/>
@@ -64,22 +63,23 @@
         <value type="string" value="minetime"/>
         <value type="string" value="xnoise"/>
         <value type="string" value="xfce4-power-manager"/>
-        <value type="string" value="syncthing-gtk"/>
-        <value type="string" value="task manager"/>
         <value type="string" value="msm notifier"/>
+        <value type="string" value="syncthing-gtk"/>
+        <value type="string" value="slack"/>
+        <value type="string" value="task manager"/>
         <value type="string" value="javaembeddedframe"/>
         <value type="string" value="pamac-tray"/>
         <value type="string" value="strawberry"/>
-        <value type="string" value="vlc"/>
+        <value type="string" value="networkmanager applet"/>
         <value type="string" value="vrmonitor"/>
         <value type="string" value="blueman-applet"/>
         <value type="string" value="pnmixer"/>
-        <value type="string" value="networkmanager applet"/>
-        <value type="string" value="thunar"/>
-        <value type="string" value="steam"/>
-        <value type="string" value="blueman-tray"/>
-        <value type="string" value="manjaro-settings-manager-daemon"/>
         <value type="string" value="sylpheed"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="manjaro-settings-manager-daemon"/>
+        <value type="string" value="blueman-tray"/>
+        <value type="string" value="xfce terminal"/>
+        <value type="string" value="steam"/>
       </property>
       <property name="names-hidden" type="array">
         <value type="string" value="clipman"/>
