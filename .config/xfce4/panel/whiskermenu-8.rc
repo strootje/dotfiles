@@ -1,5 +1,5 @@
 favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-web-browser.desktop,exo-mail-reader.desktop,pamac-manager.desktop
-recent=org.keepassxc.KeePassXC.desktop,exo-file-manager.desktop,slack.desktop,keepass.desktop,firefox.desktop,xfce4-taskmanager.desktop,xfce-display-settings.desktop,libreoffice-calc.desktop,chromium.desktop,galculator.desktop
+recent=exo-file-manager.desktop,slack.desktop,keepass.desktop,firefox.desktop,xfce4-taskmanager.desktop,xfce-display-settings.desktop,libreoffice-calc.desktop,chromium.desktop,galculator.desktop
 button-title=Applications
 button-icon=/usr/share/icons/whiskermenu-manjaro.svg
 button-single-row=false

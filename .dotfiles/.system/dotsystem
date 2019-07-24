@@ -1,36 +1,22 @@
 #!/usr/bin/env bash
 source $DOTFILES/bin/dotinstall
 
-<<<<<<< HEAD
 info "add packages"
 sudo pacman -S yarn docker docker-compose
 
-=======
->>>>>>> origin
 info "adding group developer"
 sudo groupadd developer
 
 info "adding group to current user"
-<<<<<<< HEAD
 sudo usermod -aG docker $USER
-sudo usermod -aG developer $USER
-
-# info "adding group as owner of the /usr/local folder"
-# sudo chown -R root:developer /usr/local
-=======
 sudo usermod -aG developer $USER
 
 info "adding group as owner of the /usr/local folder"
 sudo chown -R root:developer /usr/local
->>>>>>> origin
 
 info "copying limits.conf"
 sudo cp --force --backup=numbered $DOTFILES/.system/security/limits.conf /etc/security/limits.conf
 
-<<<<<<< HEAD
 info "enabling docker service"
 sudo systemctl enable docker
 sudo systemctl start docker
-
-=======
->>>>>>> origin

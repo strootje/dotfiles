@@ -21,7 +21,7 @@ user_pref("app.update.lastUpdateTime.search-engine-update-timer", 1563961854);
 user_pref("app.update.lastUpdateTime.services-settings-poll-changes", 1563896595);
 user_pref("app.update.lastUpdateTime.telemetry_modules_ping", 1563424783);
 user_pref("app.update.lastUpdateTime.xpi-signature-verification", 1563911936);
-user_pref("browser.cache.disk.amount_written", 711822);
+user_pref("browser.cache.disk.amount_written", 742741);
 user_pref("browser.cache.disk.capacity", 153600);
 user_pref("browser.cache.disk.filesystem_reported", 1);
 user_pref("browser.cache.disk.smart_size.first_run", false);
