@@ -17,19 +17,46 @@
 	"importSorter.sortConfiguration.importMembers.order": "lowercaseLast",
 	"files.exclude": {
 		"**/__generated__/": true,
-		"**/.git": true,
-		"**/.svn": true,
-		"**/.hg": true,
-		"**/CVS": true,
 		"**/.DS_Store": true,
-		"**/node_modules": true,
-		"**/dist": true,
-		"**/vendor": true,
+		"**/.git": true,
+		"**/.hg": true,
+		"**/.nyc_output": true,
+		"**/.svn": true,
 		"**/*.lock": true,
+		"**/*.log": true,
 		"**/*.scss.d.ts": true,
+		"**/CVS": true,
+		"**/dist": true,
+		"**/node_modules": true,
 		"**/schema.json": true,
-		"**/*.log": true
+		"**/vendor": true,
+		"**/.classpath": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.factorypath": true
 	},
-	"java.home": "/usr/lib/jvm/java-8-openjdk",
-	"explorer.confirmDragAndDrop": false
+	"explorer.confirmDragAndDrop": false,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"gitlens.views.repositories.location": "scm",
+	"gitlens.views.fileHistory.location": "scm",
+	"gitlens.views.lineHistory.location": "scm",
+	"gitlens.views.compare.location": "scm",
+	"gitlens.views.search.location": "scm",
+	"mochaExplorer.files": [ "test/**/*.ts", "test/**/*.tsx" ],
+	"mochaExplorer.env": {
+		"NODE_ENV": "test"
+	},
+	"editor.codeLens": false,
+	"explorer.confirmDelete": false,
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"dart.checkForSdkUpdates": false,
+	"dart.closingLabels": false,
+	"dart.enableSdkFormatter": false,
+	"[dart]": {
+		"editor.tabSize": 3,
+		"editor.insertSpaces": false,
+		"editor.detectIndentation": false
+	},
+	"breadcrumbs.enabled": true
 }
