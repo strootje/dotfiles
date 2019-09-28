@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+# imports
+info() {
+	printf "[ DOT ] $@\n"
+}
+
+# variables
+NAME="portainer"
+
+# =========================================================================== #
+# =========================================================================== #
+
+run_usage() {
+	info "usage"
+	info "$0 status \t get status of $NAME"
+	info "$0 start \t starts $NAME"
+	info "$0 stop \t stops $NAME"
+	info "$0 restart \t restarts $NAME"
+	info "$0 update \t updates $NAME"
+}
+
+run_detect() {
+	RESULT=$(docker inspect -f '{{.State.Running}}' $NAME)
+
+	if [ $? -ne 0 ]; then echo -1;
+	elif [ $RESULT = "true" ]; then echo 1
+	else echo 0; fi
+}
+
+run_remove() {
+	DETECT=$(run_detect)
+
+	if [ $DETECT -eq 0 ]; then
+		info "removing $NAME"
+		docker rm $NAME
+	fi
+}
+
+run_status() {
+	DETECT=$(run_detect)
+
+	case $DETECT in
+		-1) info "$NAME is not present";;
+		0) info "$NAME is stopped";;
+		1) info "$NAME is running";;
+		*) info "error..";;
+	esac
+
+	docker ps -a -f name=$NAME
+}
+
+run_start() {
+	DETECT=$(run_detect)
+
+	if [ $DETECT -le 0 ]; then
+		info "starting $NAME"
+	fi
+
+	if [ $DETECT -eq 0 ]; then docker start $NAME;
+	elif [ $DETECT -eq -1 ]; then
+		docker run \
+			-d \
+			-p 8000:8000 \
+			-p 9000:9000 \
+			--name $NAME \
+			-v /var/run/docker.sock:/var/run/docker.sock \
+			-v portainer_data:/data \
+			portainer/portainer \
+			--templates https://bottles.surge.sh/templates.json
+	fi
+}
+
+run_stop() {
+	DETECT=$(run_detect)
+
+	if [ $DETECT -eq 1 ]; then
+		info "stopping $NAME"
+		docker stop $NAME
+	fi
+}
+
+run_restart() {
+	run_stop
+	run_start
+}
+
+run_update() {
+	run_stop
+	run_remove
+	run_start
+}
+
+case $1 in
+	"status") run_status;;
+	"start") run_start;;
+	"stop") run_stop;;
+	"restart") run_restart;;
+	"update") run_update;;
+	*) run_usage;;
+esac

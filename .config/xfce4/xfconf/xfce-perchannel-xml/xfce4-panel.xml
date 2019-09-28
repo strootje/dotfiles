@@ -53,6 +53,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
         <value type="string" value="gameguide"/>
+        <value type="string" value="manjaro-settings-manager-daemon"/>
         <value type="string" value="vlc"/>
         <value type="string" value="syncthing"/>
         <value type="string" value="discord"/>
@@ -65,7 +66,6 @@
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="msm notifier"/>
         <value type="string" value="syncthing-gtk"/>
-        <value type="string" value="slack"/>
         <value type="string" value="task manager"/>
         <value type="string" value="javaembeddedframe"/>
         <value type="string" value="pamac-tray"/>
@@ -76,18 +76,34 @@
         <value type="string" value="pnmixer"/>
         <value type="string" value="sylpheed"/>
         <value type="string" value="thunar"/>
-        <value type="string" value="manjaro-settings-manager-daemon"/>
-        <value type="string" value="blueman-tray"/>
-        <value type="string" value="xfce terminal"/>
         <value type="string" value="steam"/>
+        <value type="string" value="xfce terminal"/>
+        <value type="string" value="slack"/>
+        <value type="string" value="blueman-tray"/>
       </property>
       <property name="names-hidden" type="array">
+        <value type="string" value="clipman"/>
+      </property>
+      <property name="names-ordered" type="array">
+        <value type="string" value="discord"/>
+        <value type="string" value="task manager"/>
+        <value type="string" value="slack"/>
+        <value type="string" value="msm notifier"/>
+        <value type="string" value="mailspring"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="blueman"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="syncthing-gtk"/>
+        <value type="string" value="blueman-tray"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="pamac-tray"/>
         <value type="string" value="clipman"/>
       </property>
     </property>
     <property name="plugin-7" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
-      <property name="style" type="uint" value="1"/>
+      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
