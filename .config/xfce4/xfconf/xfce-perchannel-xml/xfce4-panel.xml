@@ -85,6 +85,7 @@
         <value type="string" value="clipman"/>
       </property>
       <property name="names-ordered" type="array">
+        <value type="string" value="strawberry"/>
         <value type="string" value="discord"/>
         <value type="string" value="task manager"/>
         <value type="string" value="slack"/>
