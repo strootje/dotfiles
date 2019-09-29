@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 # imports
-info() {
-	printf "[ DOT ] $@\n"
-}
+source $DOTFILES/.system/shared/logger.sh
 
 # variables
 NAME="portainer"

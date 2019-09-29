@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# https://appdb.winehq.org/objectManager.php?sClass=version&iId=32129&iTestingId=105674
+
+# imports
+source $DOTFILES/.system/shared/logger.sh
+source $DOTFILES/.system/shared/cellar.sh
+
+# variables
+NAME=GogGalaxy
+BOTTLE=$CELLAR/gog-galaxy
+PREFIX=$BOTTLE/pfx
+LOGS=$BOTTLE/logs
+ARCH=win64
+INSTALLER="https://content-system.gog.com/open_link/download?path=/open/galaxy/client/setup_galaxy_1.2.59.21.exe"
+EXECUTABLE="$PREFIX/drive_c/Program Files (x86)/GOG Galaxy/GalaxyClient.exe"
+
+run_usage() {
+	info "Usage:"
+	info "$0 install \t installs $NAME"
+	info "$0 uninstall \t uninstalls $NAME"
+}
+
+run_install() {
+	info "downloading $NAME"
+	FILEPATH=$(download "setup.galaxy.exe" $INSTALLER)
+
+	info "setting up prefix"
+	mkdir -p $PREFIX
+	mkdir -p $LOGS
+	WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINETRICKS -q corefonts vcrun2015 win7 >$LOGS/out.log 2>/$LOGS/err.log
+
+	info "running installer"
+	WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINE $FILEPATH >$LOGS/out.log 2>/$LOGS/err.log
+
+	info "cleaning up"
+	rm -rf $FILEPATH
+}
+
+run_uninstall() {
+	info "removing $NAME ($BOTTLE)"
+	rm -rf $BOTTLE
+}
+
+run_start() {
+	info "starting $NAME"
+	WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINE "$EXECUTABLE" >$LOGS/out.log 2>/$LOGS/err.log
+}
+
+case $1 in
+	"install")run_install;;
+	"uninstall")run_uninstall;;
+	"start")run_start;;
+	*)run_usage;;
+esac

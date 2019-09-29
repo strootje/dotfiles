@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 source $DOTFILES/config/dtags.zsh
 source $DOTFILES/keybinds/sudo-prefix.zsh
 source $DOTFILES/aliases/pacman-prune.zsh
+source $DOTFILES/aliases/docker-prune.zsh
 source $DOTFILES/aliases/git-dotfiles.zsh
 source $DOTFILES/aliases/wine-default.zsh
 source $DOTFILES/aliases/wine-default32.zsh

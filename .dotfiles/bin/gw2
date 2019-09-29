@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+CELLAR=/opt/cellar
+BOTTLE=$CELLAR/guild-wars-2
+PATH=/run/media/UserData/games/ArenaNet/Guild\ Wars\ 2
+
+WINEPREFIX=$BOTTLE WINEARCH=win64 /usr/bin/optirun /usr/bin/wine "$PATH/Gw2-64.exe" >/dev/null 2>&1 &
