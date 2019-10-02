@@ -1,5 +1,5 @@
 favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-web-browser.desktop,exo-mail-reader.desktop,pamac-manager.desktop
-recent=xfce4-taskmanager.desktop,com.valvesoftware.Steam.desktop,virt-manager.desktop,org.strawbs.strawberry.desktop,galculator.desktop,libreoffice-calc.desktop,discord.desktop,starsector.desktop,blockbench.desktop,xfce4-screenshooter.desktop
+recent=firefox.desktop,xfce4-taskmanager.desktop,com.valvesoftware.Steam.desktop,virt-manager.desktop,org.strawbs.strawberry.desktop,galculator.desktop,libreoffice-calc.desktop,discord.desktop,starsector.desktop,blockbench.desktop
 button-title=Applications
 button-icon=/usr/share/icons/whiskermenu-manjaro.svg
 button-single-row=false

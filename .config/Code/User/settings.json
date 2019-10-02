@@ -49,14 +49,15 @@
 	"editor.codeLens": false,
 	"explorer.confirmDelete": false,
 	"editor.suggestSelection": "first",
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-	"dart.checkForSdkUpdates": false,
-	"dart.closingLabels": false,
-	"dart.enableSdkFormatter": false,
-	"[dart]": {
-		"editor.tabSize": 3,
-		"editor.insertSpaces": false,
-		"editor.detectIndentation": false
-	},
-	"breadcrumbs.enabled": true
+	"breadcrumbs.enabled": true,
+	"sonarlint.disableTelemetry": true,
+	"sonarlint.connectedMode.servers": [
+		{
+			"serverId": "sonarcloud",
+			"serverUrl": "https://sonarcloud.io",
+			"organizationKey": "strootje",
+			"token": "bbb2d5f19700c621f27ce7b02e5c2e1359ac71f5"
+		}
+	],
+	"travisClient.owner": "strootje"
 }
