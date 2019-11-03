@@ -15,7 +15,7 @@ if [ ! -d "$DOTPATH" ]; then
 	git clone --no-checkout $REPO $DOTPATH
 
 	info "performing checkout on master"
-	$DOT checkout master
+	$DOT checkout -f master
 fi
 
 info "fetching submodules"
