@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# https://appdb.winehq.org/objectManager.php?sClass=version&iId=32129&iTestingId=105674
+
+# imports
+source $DOTFILES/.system/shared/logger.sh
+source $DOTFILES/.system/shared/cellar.sh
+
+# variables
+NAME=BattleNet
+BOTTLE=$CELLAR/battle.net
+PREFIX=$BOTTLE/pfx
+LOGS=$BOTTLE/logs
+ARCH=win64
+INSTALLER="https://eu.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
+EXECUTABLE="c:\Program Files (x86)\Battle.net\Battle.net Launcher.exe"
+WINEBIN=$WINE
+
+run_usage() {
+	info "Usage:"
+	info "$0 install \t installs $NAME"
+	info "$0 uninstall \t uninstalls $NAME"
+}
+
+run_install() {
+	info "downloading $NAME"
+	FILEPATH=$(download "setup.battlenet.exe" $INSTALLER)
+
+	info "setting up prefix"
+	mkdir -p $PREFIX
+	mkdir -p $LOGS
+	# TODO: fix
+	env WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINETRICKS corefonts vcrun2015 dotnet40 dxvk d3dx9 physx gdiplus win8 >$LOGS/out.log 2>/$LOGS/err.log
+
+	info "running installer"
+	env WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINEBIN $FILEPATH >$LOGS/out.log 2>/$LOGS/err.log
+
+	info "cleaning up"
+	rm -rf $FILEPATH
+}
+
+run_uninstall() {
+	info "removing $NAME ($BOTTLE)"
+	rm -rf $BOTTLE
+}
+
+run_start() {
+	info "starting $NAME"
+	env WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINEBIN start "$EXECUTABLE" >$LOGS/out.log 2>/$LOGS/err.log
+}
+
+run_start32() {
+	info "starting $NAME"
+	env WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINE32 start "$EXECUTABLE" >$LOGS/out.log 2>/$LOGS/err.log
+}
+
+case $1 in
+	"install")run_install;;
+	"uninstall")run_uninstall;;
+	"start")run_start;;
+	"start32")run_start32;;
+	*)run_usage;;
+esac

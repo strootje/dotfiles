@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-CELLAR=/opt/cellar
-BOTTLE=$CELLAR/world-of-warcraft
-PATH=/run/media/UserData/games/WorldOfWarcraft
-
-WINEPREFIX=$BOTTLE /usr/bin/optirun /usr/bin/wine "$PATH/WoW.exe" >/dev/null 2>&1 &

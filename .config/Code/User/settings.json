@@ -5,7 +5,6 @@
 	"git.autorefresh": false,
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
-	"workbench.iconTheme": "material-icon-theme",
 	"workbench.startupEditor": "newUntitledFile",
 	"git.enableSmartCommit": true,
 	"window.zoomLevel": -1,
@@ -59,5 +58,6 @@
 			"token": "bbb2d5f19700c621f27ce7b02e5c2e1359ac71f5"
 		}
 	],
-	"travisClient.owner": "strootje"
+	"travisClient.owner": "strootje",
+	"workbench.iconTheme": "material-icon-theme"
 }

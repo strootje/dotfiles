@@ -1,0 +1,4 @@
+
+info() {
+	printf "[ DOT ] $@\n"
+}
