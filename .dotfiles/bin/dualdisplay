@@ -3,22 +3,66 @@
 # imports
 source $DOTFILES/.system/shared/logger.sh
 
+# variables
+LOG_FILE=$DOTFILES/ivo.log
+PID_FILE=$DOTFILES/ivo.pid
+
+start_intel() {
+	PID=$(intel-virtual-output -v > $LOG_FILE & echo $!)
+        echo $PID > $PID_FILE
+        (tail -f -n0 $LOG_FILE &) | grep -q ":8 woken up"
+}
+
+kill_intel() {
+	if pkill -F $PID_FILE; then
+		(tail -f -n0 $LOG_FILE &) | grep -q ":8 failed to clear"
+	fi
+}
+
+setup_output() {
+	xrandr --output VIRTUAL1 --auto --primary --right-of eDP1
+	xrandr > /dev/null
+}
+
+revert_output() {
+	xrandr --output VIRTUAL1 --off
+	xrandr --output eDP1 --auto --primary
+}
+
 run_start() {
 	run_kill
-	info "starting $NAME"
-
-	PID=$(intel-virtual-output -v > $DOTFILES/ivo.log & echo $!)
-	echo $PID > $DOTFILES/ivo.pid
-	sleep 2
-	xrandr --output VIRTUAL1 --auto --right-of eDP1
+	start_intel
+	setup_output
 }
 
 run_kill() {
-	info "killing $NAME"
-	pkill -F $DOTFILES/ivo.pid
+	kill_intel
+	revert_output
+}
+
+run_watch() {
+	start_intel
+
+	CHECK=0
+	while :
+	do
+		CHECK_IF_1=$(nvidia-xconfig --query-gpu-info | grep "Display Devices: 1")
+		if [ "$CHECK" == "0" ] && [ "$CHECK_IF_1" != "" ]; then
+			setup_output
+			CHECK=1
+		fi
+
+		if [ "$CHECK" == "1" ] && [ "$CHECK_IF_1" == "" ]; then
+			revert_output
+			CHECK=0
+		fi
+	done
+
+	kill_intel
 }
 
 case $1 in
 	"kill")run_kill;;
+	"watch")run_watch;;
 	*)run_start;;
 esac
