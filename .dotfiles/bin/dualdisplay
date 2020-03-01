@@ -9,8 +9,8 @@ PID_FILE=$DOTFILES/ivo.pid
 
 start_intel() {
 	PID=$(intel-virtual-output -v > $LOG_FILE & echo $!)
-        echo $PID > $PID_FILE
-        (tail -f -n0 $LOG_FILE &) | grep -q ":8 woken up"
+	echo $PID > $PID_FILE
+	(tail -f -n0 $LOG_FILE &) | grep -q ":8 woken up"
 }
 
 kill_intel() {
@@ -20,6 +20,7 @@ kill_intel() {
 }
 
 setup_output() {
+	xrandr --output eDP1 --auto
 	xrandr --output VIRTUAL1 --auto --primary --right-of eDP1
 	xrandr > /dev/null
 }
