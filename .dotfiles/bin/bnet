@@ -19,6 +19,8 @@ run_usage() {
 	info "Usage:"
 	info "$0 install \t installs $NAME"
 	info "$0 uninstall \t uninstalls $NAME"
+	info "$0 start \t starts $NAME"
+	info "$0 start32 \t starts $NAME using wine32"
 }
 
 run_install() {
@@ -29,7 +31,7 @@ run_install() {
 	mkdir -p $PREFIX
 	mkdir -p $LOGS
 	# TODO: fix
-	env WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINETRICKS corefonts vcrun2015 dotnet40 dxvk d3dx9 physx gdiplus win8 >$LOGS/out.log 2>/$LOGS/err.log
+	env WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINETRICKS corefonts vcrun2015 dotnet40 dxvk d3dx9 physx gdiplus win7 >$LOGS/out.log 2>/$LOGS/err.log
 
 	info "running installer"
 	env WINEPREFIX=$PREFIX WINEARCH=$ARCH $WINEBIN $FILEPATH >$LOGS/out.log 2>/$LOGS/err.log

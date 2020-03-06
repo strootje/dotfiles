@@ -1,5 +1,5 @@
 favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-web-browser.desktop,exo-mail-reader.desktop
-recent=steam.desktop,vscodium-bin.desktop,xfce4-taskmanager.desktop,xfce-mouse-settings.desktop,xfce4-accessibility-settings.desktop,plank.desktop,menulibre.desktop,thunar.desktop,xfce-display-settings.desktop,galculator.desktop
+recent=thunar.desktop,urxvt.desktop,xfce-display-settings.desktop,steam.desktop,plank.desktop,org.remmina.Remmina.desktop,wine-Programs-Battle.net-Battle.net.desktop,wine-Programs-World of Warcraft Classic PTR-World of Warcraft Classic PTR.desktop,nvidia-settings.desktop,manjaro-settings-manager.desktop
 button-title=Apps
 button-icon=/usr/share/icons/whiskermenu-manjaro.svg
 button-single-row=false

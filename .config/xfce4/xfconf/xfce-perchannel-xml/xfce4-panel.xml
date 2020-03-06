@@ -32,6 +32,7 @@
         <value type="uint" value="31229"/>
         <value type="uint" value="65535"/>
       </property>
+      <property name="span-monitors" type="bool" value="false"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -85,6 +86,7 @@
         <value type="string" value="clipman"/>
       </property>
       <property name="names-ordered" type="array">
+        <value type="string" value="org.remmina.remmina"/>
         <value type="string" value="orage"/>
         <value type="string" value="strawberry"/>
         <value type="string" value="discord"/>

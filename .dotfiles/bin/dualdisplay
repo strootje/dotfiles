@@ -20,9 +20,9 @@ kill_intel() {
 }
 
 setup_output() {
-	xrandr --output eDP1 --auto
-	xrandr --output VIRTUAL1 --auto --primary --right-of eDP1
 	xrandr > /dev/null
+	xrandr --output eDP1 --auto > /dev/null
+	xrandr --output VIRTUAL1 --auto --primary --right-of eDP1 > /dev/null
 }
 
 revert_output() {
