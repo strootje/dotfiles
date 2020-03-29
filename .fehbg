@@ -5,7 +5,7 @@ PATH_TO_WALLPAPERS=$PWD/Pictures/Backgrounds/Unsplash
 
 echo "Downloading from Unsplash"
 unsplash-wallpaper \
-		--random \
+		--search nature \
 		--width 1920 \
 		--height 1080 \
 		--dir $PATH_TO_WALLPAPERS \

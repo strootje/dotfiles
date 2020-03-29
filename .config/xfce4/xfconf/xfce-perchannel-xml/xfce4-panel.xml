@@ -86,6 +86,9 @@
         <value type="string" value="clipman"/>
       </property>
       <property name="names-ordered" type="array">
+        <value type="string" value="skypeforlinux"/>
+        <value type="string" value="riot-web"/>
+        <value type="string" value="gameguide"/>
         <value type="string" value="org.remmina.remmina"/>
         <value type="string" value="orage"/>
         <value type="string" value="strawberry"/>
@@ -111,7 +114,7 @@
     </property>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="audacious;clementine;strawberry;vlc"/>
+      <property name="mpris-players" type="string" value="audacious;chromium.instance14532;chromium.instance5149;chromium.instance81861;chromium.instance967349;clementine;strawberry;vlc"/>
       <property name="enable-wnck" type="bool" value="false"/>
       <property name="enable-multimedia-keys" type="bool" value="true"/>
       <property name="enable-mpris" type="bool" value="true"/>

@@ -8,8 +8,8 @@ export PATH=$DOTFILES/bin:$PATH
 export ZSH="$DOTFILES/oh-my-zsh"
 
 # Exports
-export EDITOR=/usr/bin/vim
-export TERM=screen-256color
+# export EDITOR=/usr/bin/vim
+# export TERM=screen-256color
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

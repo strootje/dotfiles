@@ -67,6 +67,8 @@ run_start() {
 			-v /var/run/docker.sock:/var/run/docker.sock:ro \
 			-v portainer_data:/data \
 			-e no_proxy=https://bottles.surge.sh/templates.json \
+			-e VIRTUAL_HOST=portainer.rs \
+			-e VIRTUAL_PORT=9000 \
 			portainer/portainer \
 			--templates https://bottles.surge.sh/templates.json
 	fi
