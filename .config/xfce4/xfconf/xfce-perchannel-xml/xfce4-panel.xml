@@ -37,6 +37,9 @@
       <property name="settings" type="empty">
         <property name="show-qr-code" type="bool" value="true"/>
       </property>
+      <property name="tweaks" type="empty">
+        <property name="inhibit" type="bool" value="false"/>
+      </property>
     </property>
     <property name="plugin-11" type="string" value="whiskermenu"/>
     <property name="plugin-14" type="string" value="separator">
@@ -55,6 +58,9 @@
     </property>
     <property name="plugin-20" type="string" value="systray">
       <property name="names-ordered" type="array">
+        <value type="string" value="msm notifier"/>
+        <value type="string" value="notes"/>
+        <value type="string" value="gameguide"/>
         <value type="string" value="blueman-tray"/>
         <value type="string" value="syncthing-gtk"/>
         <value type="string" value="task manager"/>
@@ -70,8 +76,8 @@
       <property name="square-icons" type="bool" value="false"/>
       <property name="size-max" type="uint" value="22"/>
       <property name="names-hidden" type="array">
-        <value type="string" value="networkmanager applet"/>
         <value type="string" value="steam"/>
+        <value type="string" value="networkmanager applet"/>
         <value type="string" value="clipman"/>
         <value type="string" value="blueman"/>
         <value type="string" value="pamac-tray"/>
