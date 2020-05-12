@@ -10,7 +10,7 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="11"/>
         <value type="int" value="14"/>
-        <value type="int" value="10"/>
+        <value type="int" value="1"/>
         <value type="int" value="19"/>
         <value type="int" value="24"/>
         <value type="int" value="20"/>
@@ -58,6 +58,9 @@
     </property>
     <property name="plugin-20" type="string" value="systray">
       <property name="names-ordered" type="array">
+        <value type="string" value="thunar"/>
+        <value type="string" value="barrier"/>
+        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="msm notifier"/>
         <value type="string" value="notes"/>
         <value type="string" value="gameguide"/>
@@ -108,6 +111,10 @@
     <property name="plugin-26" type="string" value="clock">
       <property name="mode" type="uint" value="2"/>
       <property name="digital-format" type="string" value="%R"/>
+    </property>
+    <property name="plugin-1" type="string" value="dockbarx">
+      <property name="orient" type="string" value="left"/>
+      <property name="block-autohide" type="bool" value="false"/>
     </property>
   </property>
   <property name="configver" type="int" value="2"/>

@@ -1,17 +1,18 @@
 #!/usr/bin/env sh
 
 # variables
-PATH_TO_WALLPAPERS=$PWD/Pictures/Backgrounds/Unsplash
+PATH_TO_WALLPAPERS=$PWD/Photos/Backgrounds/Unsplash
 
 echo "Downloading from Unsplash"
 unsplash-wallpaper \
 		--search nature \
-		--width 1920 \
-		--height 1080 \
+		--width 3440 \
+		--height 1440 \
 		--dir $PATH_TO_WALLPAPERS \
 		&> /dev/null
 
 LATEST=$(ls -t1 $PATH_TO_WALLPAPERS |  head -n 1)
 PATH=$PATH_TO_WALLPAPERS/$LATEST
-echo "Setting wallpaper with feh $PATH"
-/usr/bin/feh --no-fehbg --bg-scale $PATH $PATH
+
+/usr/bin/xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorDisplayPort-1/workspace0/last-image -s $PATH
+/usr/bin/xfdesktop --reload
