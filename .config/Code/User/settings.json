@@ -59,5 +59,6 @@
 		}
 	],
 	"travisClient.owner": "strootje",
-	"workbench.iconTheme": "vscode-icons"
+	"workbench.iconTheme": "vscode-simpler-icons",
+	"javascript.updateImportsOnFileMove.enabled": "always"
 }
